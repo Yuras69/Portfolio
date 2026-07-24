@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { profile } from "@/data/profile";
 import { Button } from "@/components/ui/button";
 import { TextReveal } from "@/components/animations/text-reveal";
@@ -12,10 +13,16 @@ import { Particles } from "@/components/animations/particles";
 import { Spotlight } from "@/components/animations/spotlight";
 import { TiltCard } from "@/components/animations/tilt-card";
 import { useTypewriter } from "@/hooks/use-typewriter";
+import { ResumePDF } from "@/components/ResumePDF";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const typed = useTypewriter(profile.roles, { pauseDuration: 1800 });
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   return (
     <section
@@ -68,12 +75,19 @@ export function Hero() {
             transition={{ delay: 0.65, duration: 0.6 }}
             className="mt-9 flex flex-wrap items-center gap-4"
           >
-            <a href={profile.resumeUrl} download>
-              <Button variant="primary">
-                <Download className="h-4 w-4" aria-hidden="true" />
-                Download Resume
-              </Button>
-            </a>
+            {isClient && (
+              <PDFDownloadLink
+                document={<ResumePDF />}
+                fileName="Yuras_Pokharel_Resume.pdf"
+              >
+                {({ loading }) => (
+                  <Button variant="primary" disabled={loading}>
+                    <Download className="h-4 w-4" aria-hidden="true" />
+                    {loading ? "Generating..." : "Download Resume"}
+                  </Button>
+                )}
+              </PDFDownloadLink>
+            )}
             <a href="#contact">
               <Button variant="secondary">Get in touch</Button>
             </a>
