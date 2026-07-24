@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------
+   DESIGN TOKENS
+   Palette: near-black base, indigo->cyan "dev" gradient,
+   amber "biz" accent — the two accent colors are used
+   throughout as a signature "DEV / BIZ" duality tag system
+   that reflects Yuras's actual dual role.
+--------------------------------------------------------- */
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-bg: #07070c;
+  --color-bg-elevated: #0c0c15;
+  --color-surface: #ffffff0a;
+  --color-surface-strong: #ffffff14;
+  --color-border: #ffffff1a;
+
+  --color-text: #f5f5f7;
+  --color-text-muted: #9aa0ac;
+  --color-text-faint: #63687a;
+
+  --color-dev: #6d5ef8;
+  --color-dev-bright: #8b7cff;
+  --color-cyan: #34d9e8;
+  --color-biz: #f5a623;
+  --color-biz-bright: #ffc266;
+
+  --shadow-glow-dev: 0 0 40px -8px #6d5ef866;
+  --shadow-glow-biz: 0 0 40px -8px #f5a62366;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-dev);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-dev), var(--color-cyan));
+  border-radius: 999px;
+  border: 2px solid var(--color-bg);
+}
+
+/* Focus states for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------
+   REUSABLE UTILITY CLASSES
+--------------------------------------------------------- */
+.glass {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-strong {
+  background: var(--color-surface-strong);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, var(--color-dev-bright), var(--color-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-biz {
+  background: linear-gradient(120deg, var(--color-biz-bright), var(--color-biz));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-container {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    padding-inline: 2.5rem;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+/* DEV / BIZ signature tag — appears on skills, timeline nodes,
+   project cards to encode which side of Yuras's dual role
+   a piece of content belongs to. */
+.tag-dev {
+  color: var(--color-dev-bright);
+  background: #6d5ef81a;
+  border: 1px solid #6d5ef840;
+}
+.tag-biz {
+  color: var(--color-biz-bright);
+  background: #f5a6231a;
+  border: 1px solid #f5a62340;
+}
+
+.noise {
+  position: relative;
+}
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
