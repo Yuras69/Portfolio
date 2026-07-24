@@ -1,0 +1,61 @@
+Yuras Pokharel
+Full Stack Developer, Business Development Intern
+Kathmandu, Nepal | uraspokhrel25@gmail.com | linkedin.com/in/yuraspokharel | github.com/Yuras69
+
+Summary
+Final-year student and full stack developer with hands-on experience in building web applications using React, Next.js, TypeScript, and Node.js. Proven ability to contribute to both front-end and back-end development while also gaining experience in business development and community engagement.
+
+Education
+Itahari International College
+Bachelor's Degree — Final Year (Present)
+- Final-year student with a focus on full-stack web development.
+- Building practical projects with modern web technologies.
+
+Experience
+Business Development Intern & Experience Ambassador
+Itahari International College (Present)
+- Support business development activities and student engagement initiatives.
+- Represent the student experience and help foster a welcoming college community.
+- Develop communication, collaboration, and relationship-building skills.
+
+Projects
+NextJs_Learning | https://github.com/Yuras69/NextJs_Learning
+- A hands-on repository for learning Next.js.
+- Tech Stack: Next.js, TypeScript
+
+UserManagementSystem | https://github.com/Yuras69/UserManagementSystem
+- Modern user management system with CRUD operations and responsive design.
+- Tech Stack: React, Vite, TypeScript, Axios
+
+CRUD-PROJECT | https://github.com/Yuras69/CRUD-PROJECT
+- A project for practicing CRUD functionality.
+- Tech Stack: TypeScript, CRUD
+
+Internship_Task | https://github.com/Yuras69/Internship_Task
+- A TypeScript project completed as an internship task.
+- Tech Stack: TypeScript
+
+ShadCn_Learning- | https://github.com/Yuras69/ShadCn_Learning-
+- A TypeScript project for learning shadcn/ui.
+- Tech Stack: TypeScript, shadcn/ui
+
+Shopping_Cart | https://github.com/Yuras69/Shopping_Cart
+- A JavaScript shopping cart project.
+- Tech Stack: JavaScript
+
+React-Learning | https://github.com/Yuras69/React-Learning
+- A repository for learning React.
+- Tech Stack: React, CSS
+
+Internship_Learning | https://github.com/Yuras69/Internship_Learning
+- A JavaScript learning project from an internship.
+- Tech Stack: JavaScript
+
+Smart-Waste-Management-System | https://github.com/Yuras69/Smart-Waste-Management-System
+- A smart waste management system project.
+- Tech Stack: Web Development
+
+Skills
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Backend: Node.js
+- Other: Git, GitHub

@@ -5,7 +5,7 @@ export const profile = {
   email: "uraspokhrel25@gmail.com",
   github: "https://github.com/Yuras69",
   linkedin: "https://linkedin.com/in/yuraspokharel",
-  resumeUrl: "/resume/Yuras_Pokharel_Resume.pdf",
+  resumeUrl: "/resume/Yuras_Pokharel_Resume.txt",
   availability: "Open to internship & full-time roles",
   tagline:
     "Full stack developer and final-year student, building practical web experiences with modern JavaScript tools.",
