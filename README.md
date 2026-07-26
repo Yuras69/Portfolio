@@ -21,16 +21,6 @@ Open http://localhost:3000.
 
 ## Before you deploy — replace these placeholders
 
-| What | Where | Notes |
-|---|---|---|
-| Profile photo | `public/images/profile-photo.jpg` | Square-ish portrait, ideally 800×1000 or larger |
-| Resume PDF | `public/resume/Yuras_Pokharel_Resume.pdf` | Linked from Hero + Contact sections |
-| OG / social share image | `public/images/og-cover.png` | 1200×630 |
-| Favicon | `app/favicon.ico` | |
-| Project preview images | `public/images/projects/*.png` | Replace with real screenshots |
-| GitHub username | `app/api/github/route.ts` (`GITHUB_USERNAME`) and `components/sections/github-stats.tsx` reads it from `data/profile.ts`'s `github` URL — keep both in sync | Powers live stats + contribution cards |
-| All copy, links, projects, experience, education | `data/*.ts` | Everything is centralized here — no need to touch components |
-| Contact form submission | `components/sections/contact.tsx` | Currently simulates a submit; wire to Formspree, Resend, or your own API route |
 
 ## Folder structure
 
@@ -46,11 +36,3 @@ hooks/          useTypewriter, useCounter, useMousePosition
 lib/            cn() helper, next/font definitions
 public/         Images, resume
 ```
-
-## Notes
-
-- Verified with a production build (`next build`) — compiles and type-checks cleanly.
-- Respects `prefers-reduced-motion` for particles and global animation.
-- The GitHub stats section calls the public GitHub REST API server-side via `/api/github`
-  (revalidated hourly) and falls back gracefully if the API is unreachable or rate-limited.
-- Deploy directly to Vercel: `vercel` or connect the repo in the Vercel dashboard.
