@@ -10,10 +10,12 @@ import { Reveal } from "@/components/animations/reveal";
 
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "submitting" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
+    setErrorMessage("");
 
     const form = e.currentTarget;
     const formData = new FormData(form);
@@ -34,14 +36,17 @@ export function Contact() {
         }),
       });
 
-      if (!response.ok) throw new Error("Message could not be delivered");
       const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.error ?? "Message could not be delivered");
+      }
       if (result.success !== true) {
-        throw new Error(result.message ?? "Message could not be delivered");
+        throw new Error(result.error ?? "Message could not be delivered");
       }
       form.reset();
       setStatus("sent");
-    } catch {
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "Could not send message. Please try again.");
       setStatus("error");
     }
   }
@@ -164,7 +169,7 @@ export function Contact() {
               )}
               {status === "error" && (
                 <p role="alert" className="text-sm text-red-400">
-                  Could not send message. Please try again.
+                  {errorMessage}
                 </p>
               )}
             </form>
