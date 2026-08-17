@@ -10,7 +10,7 @@ type ContactRequest = {
 
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
-  const recipient = process.env.RESEND_TO ?? defaultRecipient;
+  
 
   if (!apiKey) {
     return NextResponse.json({ error: "Email service is not configured yet." }, { status: 503 });
@@ -31,6 +31,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Name, email, and message are required." }, { status: 400 });
     }
 
+    const recipient = process.env.EMAIL_RECIEPIENT ?? defaultRecipient;
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
